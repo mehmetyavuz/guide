@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:guide/result.dart';
 
 import 'quiz.dart';
+import 'result.dart';
 
 // void main() {
 //   runApp(MyApp());
@@ -41,15 +43,15 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('ssss'),
-        ),
-        body: _qIndex < _questions.length
-            ? Quiz(_chooseAnswer, _questions)
-            : Center(
-                child: Text('Done !'),
-              ),
-      ),
+          appBar: AppBar(
+            title: Text('ssss'),
+          ),
+          body: _qIndex < _questions.length
+              ? Quiz(
+                  questions: _questions,
+                  questionIndex: _qIndex,
+                  answerQuestion: _chooseAnswer)
+              : Result()),
     );
   }
 }
